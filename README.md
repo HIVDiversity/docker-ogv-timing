@@ -13,8 +13,9 @@ This requires docker. Go read about installing it here: https://docs.docker.com/
 3. Navigate to where you cloned this repo. Once you have navigated, build the docker image by running:
 `docker build -t ogv-dating .`
 
-4. Launch a docker container from the image you just built, and mount the ogv-timing repo you cloned into it:
+4. Launch a docker container from the image you just built, and mount the ogv-timing repo you just cloned into it:
 `docker run --rm -it -v /path/to/your/ogv-dating:/root/ogvDating ogv-dating`
+Note that any edits to this directory inside the container will happen outside the container as well. Don't delete the contents of ogv-timing inside the container if you want to keep them around. 
 
-5. Inside the image, nagivate to `/root/ogvDating` and run `snakemake`:
+5. Inside the container, nagivate to `/root/ogvDating` and run `snakemake` by running:
 `cd /root/ogvDating && snakemake`
